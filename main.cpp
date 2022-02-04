@@ -16,7 +16,30 @@ public:
         std::cout<<emp.age<<'\n';
     }
 };
+
+std::string Races[] = {
+        "Demon",
+        "Human",
+        "ELf",
+        "Orc",
+        "Aliens"
+};
+
+struct User {
+    unsigned int RaceID;
+    std::string Race;
+    explicit User(unsigned int rid) //struct construct with one argument.
+    : RaceID(rid)   //RaceID will be the assign during construction.
+    ,Race(Races[rid]) //Inner container access element then assign.
+            {} //empty constructor. can construct with Nothing.
+};
+
+
 int main() {
+    User user(3);
+    std::cout<<user.Race<<'\n';
+
+
     /*
      * a::b is only used if b is a member of the class (or namespace) a.
      * That is, in this case a will always be the name of a class (or namespace).
